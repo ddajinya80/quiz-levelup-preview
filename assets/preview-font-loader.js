@@ -1,0 +1,1 @@
+const font=document.createElement('link');font.rel='stylesheet';font.href='https://cdn.jsdelivr.net/gh/toss/tossface/dist/tossface.css';font.media='print';font.addEventListener('load',()=>{font.media='all'});document.head.append(font);
