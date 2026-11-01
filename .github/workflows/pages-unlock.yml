@@ -1,0 +1,13 @@
+name: 미리보기 배포 잠금 수동 해제
+on:
+  workflow_dispatch:
+permissions:
+  pages: write
+jobs:
+  unlock:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 이전 Pages 배포 취소
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api -X POST "repos/${GITHUB_REPOSITORY}/pages/deployments/4e1168b36e365eaa7477059d9eba244144bdf739/cancel"
