@@ -1,0 +1,13 @@
+name: Pages 설정 수동 복구
+on:
+  workflow_dispatch:
+permissions:
+  pages: write
+jobs:
+  repair:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 새 배포 브랜치로 Pages 설정
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api -X PUT "repos/${GITHUB_REPOSITORY}/pages" -f 'source[branch]=preview-live' -f 'source[path]=/'
